@@ -6,7 +6,7 @@ public class Main
 	public static void main(String[] args) throws Exception
 	{
 		HashMap<String,Double> map = new HashMap<String, Double>();
-		Color color1 = createColor(34, 45, 23);
+		Color color1 = createColor(30.56, 8.7, 6.51);
 		String nameOfFile = getNameOfFile();
 		BufferedReader rf = new BufferedReader(new InputStreamReader(new  FileInputStream(nameOfFile)));
 		String line;
@@ -23,7 +23,7 @@ public class Main
 		{
 			i++;
 			if (i == 4){break;}
-			System.out.println(entry.getKey() + " " + entry.getValue());
+			System.out.printf("%s dE76 = %.2f %n",entry.getKey(), entry.getValue());
 		}
 	}
 

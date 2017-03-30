@@ -40,7 +40,7 @@ public class Color
 		return b;
 	}
 
-	public static double colorDifference(Color color1, Color color2)
+	public static double colorDifference76(Color color1, Color color2)
 	{
 		double dL = Math.pow((color1.l - color2.l),2);
 		double da = Math.pow((color1.a - color2.a),2);

@@ -6,21 +6,25 @@ public class Main
 	public static void main(String[] args) throws Exception
 	{
 		HashMap<String,Double> map = new HashMap<String, Double>();
-		Color color1 = createColor(76, 54, 34);
+		Color color1 = createColor(34, 45, 23);
 		String nameOfFile = getNameOfFile();
 		BufferedReader rf = new BufferedReader(new InputStreamReader(new  FileInputStream(nameOfFile)));
 		String line;
-		while((line = rf.readLine())!=null){
-			String[] lm = line.split("\r\n");
-			Color color2 = createColor(Double.parseDouble(lm[1]), Double.parseDouble(lm[2]),Double.parseDouble(lm[3]));
-			double dE = Color.colorDifference(color1, color2);
+		while ((line = rf.readLine()) != null)
+		{
+			String[] lm = line.split(";");
+			Color color2 = createColor(Double.parseDouble(lm[1]), Double.parseDouble(lm[2]), Double.parseDouble(lm[3]));
+			double dE = Color.colorDifference76(color1, color2);
 			map.put(lm[0], dE);
 		}
-		LinkedHashMap<String, Double> lmap =sortirovka(map);
-		for(Map.Entry<String, Double> entry: lmap.entrySet()){
-			System.out.println(entry.getKey()+ " "+entry.getValue());
+		LinkedHashMap<String, Double> lmap = sortirovka(map);
+		int i=0;
+		for (Map.Entry<String, Double> entry: lmap.entrySet())
+		{
+			i++;
+			if (i == 4){break;}
+			System.out.println(entry.getKey() + " " + entry.getValue());
 		}
-
 	}
 
 	private static LinkedHashMap<String, Double> sortirovka(HashMap<String, Double> map)
@@ -43,17 +47,19 @@ public class Main
 
 	private static String getNameOfFile()
 	{
-		String s = null;
-		BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
-		try
-		{
-			s = reader.readLine();
-		}
-		catch (IOException e)
-		{}
+		String s = "storage/emulated/0/AppProjects/ColorDifferenceFromFile/CDFF/src/lab.txt";
+		/*BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
+		 try
+		 {
+		 s = reader.readLine();
+		 }
+		 catch (IOException e)
+		 {}
+		 */
 		return s;
 	}
-	public static Color createColor(double l, double a, double b){
+	public static Color createColor(double l, double a, double b)
+	{
 		Color color = new Color(l, a, b);
 		return color;
 	}

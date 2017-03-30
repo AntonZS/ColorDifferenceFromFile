@@ -47,15 +47,15 @@ public class Main
 
 	private static String getNameOfFile()
 	{
-		String s = "storage/emulated/0/AppProjects/ColorDifferenceFromFile/CDFF/src/lab.txt";
-		/*BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
+		String s = null;
+		BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
 		 try
 		 {
 		 s = reader.readLine();
 		 }
 		 catch (IOException e)
 		 {}
-		 */
+		 
 		return s;
 	}
 	public static Color createColor(double l, double a, double b)
